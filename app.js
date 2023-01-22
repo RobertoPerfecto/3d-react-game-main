@@ -1,11 +1,12 @@
 const express = require('express');
+require('dotenv').config;
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require('socket.io');
 const cors = require('cors');
 app.use(cors());
-const MAX_PLAYERS = 4;
+const MAX_PLAYERS = process.env.MAX_PLAYERS || 4;
 const stage_PREPARATION = "PREPARATION";
 const stage_HIDING = "HIDING";
 const stage_PLAYING = "PLAYING";
@@ -16,6 +17,8 @@ const SEEKER = "SEEKER";
 const SPECTATOR = "SPECTATOR";
 const SERVER_TICK_TIME = 25;
 
+const PORT = process.env.PORT || 5000;
+
 const io = new Server(server, {
     cors: {
         origin: 'http://localhost:3000',
@@ -23,9 +26,11 @@ const io = new Server(server, {
     }
 });
 
-server.listen(5000, () => {
-    console.log('listening on *:5000');
+server.listen(PORT, () => {
+    console.log('listening on: ' + PORT);
 });
+
+app.use(express.static('./frontend/build'));
 
 const rooms = [];
 

@@ -1,8 +1,11 @@
 {
   "name": "game",
   "version": "1.0.0",
-  "description": "",
+  "description": "Very cool game by Ukrainian",
   "main": "app.js",
+  "engines": {
+    "node": "16.x.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "concurrently \"node app\" \"npm run build --prefix frontend \" ",
@@ -12,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "socket.io": "^4.5.3"
   },
