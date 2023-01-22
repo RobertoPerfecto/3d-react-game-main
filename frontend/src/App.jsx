@@ -2,7 +2,7 @@ import './App.css';
 import Game from './components/Game/Game'
 import io from 'socket.io-client';
 
-const socket = io.connect('http://localhost:5000');
+const socket = io.connect();
 
 function App() {
   return <Game socket={socket}/>;
