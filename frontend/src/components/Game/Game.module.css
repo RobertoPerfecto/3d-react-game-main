@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+}
+
+.canvasContainer {
+    width: 100vw;
+    height: 100vh;
+}
+
+.blackScreen {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+.blackScreen h1 {
+    color: rgb(203, 82, 45);
+    font-family: Impact;
+}
